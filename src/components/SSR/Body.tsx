@@ -1,6 +1,11 @@
+import { FC } from 'react'
+
+import { Widget } from 'lib/types'
 import { DashboardController } from './DashboardController'
 
-export const Body = () => (
+type Props = { widgets: Widget[] }
+
+export const Body: FC<Props> = ({ widgets }) => (
   <main className="w-full flex-grow py-4 bg-prism">
     <div className="container p-4 flex flex-col items-center">
       <h2 className="text-4xl leading-normal mb-6">
@@ -16,7 +21,7 @@ export const Body = () => (
           This is probably <strong>not a good idea</strong> in 2021.
         </p>
       </section>
-      <DashboardController />
+      <DashboardController widgets={widgets} />
     </div>
   </main>
 )

@@ -1,28 +1,25 @@
 import { FC } from 'react'
 
 import { Card } from 'components/Card/Card'
+import { Widget } from 'lib/types'
 import ChevronRightIcon from './chevron-right.svg'
 
-type Props = {
-  count: number
-  title: string
-  info?: string
+export interface ExpandableWidgetProps extends Widget {
   isExpanded?: boolean
 }
 
-export const ExpandableWidget: FC<Props> = ({
-  count,
+export const ExpandableWidget: FC<ExpandableWidgetProps> = ({
+  items,
   title,
   info,
   isExpanded,
-  children,
 }) => (
   <Card>
     <div className="flex items-center">
       <div className="flex-grow">
         <div className="flex">
           <div className="text-2xl font-semibold leading-8 text-blue-400 mr-2">
-            {count}
+            {items.length}
           </div>
           <div>
             <h3 className="text-xl font-semibold leading-8">{title}</h3>
@@ -31,7 +28,11 @@ export const ExpandableWidget: FC<Props> = ({
         </div>
       </div>
       {isExpanded ? (
-        children
+        <ul>
+          {items.map(({ id }) => (
+            <li key={id}>{id}</li>
+          ))}
+        </ul>
       ) : (
         <ChevronRightIcon
           aria-label="expand widget"
