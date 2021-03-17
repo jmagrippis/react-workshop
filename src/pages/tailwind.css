@@ -4,6 +4,11 @@
 
 /* tailwind-style utility classes
 taken from https://github.com/tailwindcss/tailwindcss/issues/162 */
+
+body {
+  @apply font-mono;
+}
+
 @layer utilities {
   @variants responsive {
     .text-shadow {

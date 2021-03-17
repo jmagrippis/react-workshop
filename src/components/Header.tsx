@@ -18,7 +18,7 @@ export const Header = () => {
         </HomeElement>
         <ul className="flex flex-row">
           <li>
-            <Link href="/server">
+            <Link href="/ssr">
               <a
                 className="transition duration-300 hover:text-purple-300"
                 aria-label="SSR / Server version"
@@ -28,7 +28,7 @@ export const Header = () => {
             </Link>
           </li>
           <li className="ml-3">
-            <Link href="/client">
+            <Link href="/spa">
               <a
                 className="transition duration-300 hover:text-purple-300"
                 aria-label="SPA / Client version"

@@ -3,12 +3,13 @@ const typography = require('@tailwindcss/typography')
 
 module.exports = {
   purge: ['./src/**/*.tsx', './src/**/*.css'],
-  corePlugins: {
-    fontFamily: false,
-  },
   theme: {
     container: {
       center: true,
+    },
+    fontFamily: {
+      sans: ['Lato', 'sans-serif'],
+      mono: ['"Fira Code"', 'mono'],
     },
     extend: {
       colors: {
