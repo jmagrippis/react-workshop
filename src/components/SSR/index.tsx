@@ -1,7 +1,9 @@
-import { Widget } from 'lib/types'
+import { ExpandableWidgetType } from 'components/ExpandableWidget/ExpandableWidget'
 import { Body } from './Body'
 
-export type SSRProps = { widgets: Widget[] }
-const SSR = ({ widgets }) => <Body widgets={widgets} />
+export type SSRProps = { expandableWidgets: ExpandableWidgetType[] }
+const SSR = ({ expandableWidgets }) => (
+  <Body expandableWidgets={expandableWidgets} />
+)
 
 export default SSR

@@ -1,11 +1,11 @@
 import { FC } from 'react'
 
-import { Widget } from 'lib/types'
+import { ExpandableWidgetType } from 'components/ExpandableWidget/ExpandableWidget'
 import { DashboardController } from './DashboardController'
 
-type Props = { widgets: Widget[] }
+type Props = { expandableWidgets: ExpandableWidgetType[] }
 
-export const Body: FC<Props> = ({ widgets }) => (
+export const Body: FC<Props> = ({ expandableWidgets }) => (
   <main className="w-full flex-grow py-4 bg-prism">
     <div className="container p-4 flex flex-col items-center">
       <h2 className="text-4xl leading-normal mb-6">
@@ -21,7 +21,7 @@ export const Body: FC<Props> = ({ widgets }) => (
           This is probably <strong>not a good idea</strong> in 2021.
         </p>
       </section>
-      <DashboardController widgets={widgets} />
+      <DashboardController expandableWidgets={expandableWidgets} />
     </div>
   </main>
 )

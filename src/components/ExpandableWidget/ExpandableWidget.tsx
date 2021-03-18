@@ -1,17 +1,24 @@
 import { FC } from 'react'
+import cn from 'classnames'
 
 import { Card } from 'components/Card/Card'
-import { Widget } from 'lib/types'
+import { Widget, WidgetType } from 'lib/types'
 import ChevronRightIcon from './chevron-right.svg'
 
-export interface ExpandableWidgetProps extends Widget {
+export interface ExpandableWidgetType extends Widget {
   isExpanded?: boolean
 }
 
-export const ExpandableWidget: FC<ExpandableWidgetProps> = ({
+interface Props extends ExpandableWidgetType {
+  handleExpand: (id: WidgetType) => void
+}
+
+export const ExpandableWidget: FC<Props> = ({
+  id,
   items,
   title,
   info,
+  handleExpand,
   isExpanded,
 }) => (
   <Card>
@@ -27,18 +34,23 @@ export const ExpandableWidget: FC<ExpandableWidgetProps> = ({
           </div>
         </div>
       </div>
-      {isExpanded ? (
-        <ul>
-          {items.map(({ id }) => (
-            <li key={id}>{id}</li>
-          ))}
-        </ul>
-      ) : (
-        <ChevronRightIcon
-          aria-label="expand widget"
-          className="cursor-pointer text-green-600 w-8"
-        />
-      )}
+      <ChevronRightIcon
+        aria-label="expand widget"
+        className={cn(
+          'cursor-pointer text-green-600 w-8 transition-transform duration-300',
+          {
+            'transform rotate-90': isExpanded,
+          }
+        )}
+        onClick={() => handleExpand(id)}
+      />
     </div>
+    {isExpanded ? (
+      <ul className="mt-2">
+        {items.map(({ id }) => (
+          <li key={id}>{id}</li>
+        ))}
+      </ul>
+    ) : null}
   </Card>
 )
