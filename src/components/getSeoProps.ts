@@ -3,7 +3,7 @@ import { rootUrl } from 'lib/constants'
 const defaultSeo = {
   title: 'React Workshop | Pretty Interactive React',
   description:
-    'A series of workshops created for the lovely stuff over at Zoopla that are keen to learn React!',
+    'A series of workshops created for the lovely staff over at Zoopla who are keen to learn React!',
   openGraph: {
     type: 'website',
     locale: 'en_UK',
