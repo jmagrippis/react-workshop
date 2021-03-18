@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import GithubIcon from './github-mark.svg'
 
 export const Header = () => {
   const { pathname } = useRouter()
@@ -16,7 +17,7 @@ export const Header = () => {
             </a>
           </Link>
         </HomeElement>
-        <ul className="flex flex-row">
+        <ul className="flex flex-row items-center">
           <li>
             <Link href="/ssr">
               <a
@@ -36,6 +37,18 @@ export const Header = () => {
                 SPA
               </a>
             </Link>
+          </li>
+
+          <li className="ml-4">
+            <a
+              className="transition duration-300 hover:text-purple-300"
+              aria-label="github code repository"
+              href="https://github.com/jmagrippis/react-workshop"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <GithubIcon className="transition duration-300 hover:text-purple-300 w-6" />
+            </a>
           </li>
         </ul>
       </nav>
